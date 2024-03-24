@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+//1.Let the computer generate a random number randomly (1~100)  //rand()is a function that generates random numbers ；It generates random numbers between 0~RAND_MAX (32767)
+//2.Let's guess the number
+
+
+void Menu(){
+  printf("**************************\n");
+  printf("*******   1.Play   *******\n");
+  printf("*******   0.Exit   *******\n");
+  printf("**************************\n");
+}
+
+void game(){
+  //1.Let the computer generate a random number randomly (1~100)
+  int ret = rand()%100+1;  
+  //%100 will generate random numbers from 0 to 99 ; + 1 就100 个random numbers
+  // printf("%d\n",ret);
+  
+  //2.Let's guess the number
+  int guess;
+  
+
+  while(1){
+    printf("Guess a number->");
+    scanf("%d",&guess);
+    if(guess>ret){
+      printf("Too big\n");
+    }
+    else if(guess<ret){
+      printf("Too small\n");
+    }
+    else{
+      printf("You win!\n");
+      break;
+    }
+  }
+}
+
+
+int main() {
+  
+  int choice;
+  // srand(); ,before calling rand(),you must call srand() first and srand() only need to be called 
+  // once
+  srand((unsigned int)time(NULL));        // int *p = NULL 
+                                          // int a = 0;
+                                          /* time函数会返回一个unsigned int 类型的值， 
+                                             因为srand() 需要一个insigned int的值，so把time函数的返回值 
+                                             类型强制转换到usigned int类型 */                                         
+  do{
+    Menu();
+    printf("Your choice->");
+    scanf("%d",&choice);
+    switch(choice){
+      case 1:
+        game();
+        break;
+      case 0:
+        printf("Exit\n");
+        break;
+      default:
+        printf("Choose again!\n");
+        break;
+      
+    }
+  }while(choice);
+ 
+  return 0;
+}
+ 
