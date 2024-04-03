@@ -48,7 +48,7 @@ int main() {
   srand((unsigned int)time(NULL));        // int *p = NULL 
                                           // int a = 0;
                                           /* time函数会返回一个unsigned int 类型的值， 
-                                             因为srand() 需要一个insigned int的值，so把time函数的返回值 
+                                             因为srand() 需要一个unsigned int的值，so把time函数的返回值 
                                              类型强制转换到usigned int类型 */                                         
   do{
     Menu();
